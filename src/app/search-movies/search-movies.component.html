@@ -7,10 +7,10 @@
     <div clickOutside (clickOutside)="closeAutocomplete()">
         <div *ngIf="showAutoComplete" class="searchResults collection margin-top-m-20px">
 
-            <div class="collection-item avatar" *ngFor="let title of movies | searchFilterPipe :searchQuery">
+            <div (click)="getSelectedMovie(title)" class="collection-item avatar" *ngFor="let title of movies | searchFilterPipe :searchQuery">
 
                 <i class="material-icons circle orange">movie</i>
-                <span class="title">   {{title}}</span>
+                <span class="title">{{title}}</span>
 
 
             </div>

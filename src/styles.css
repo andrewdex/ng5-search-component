@@ -10,4 +10,15 @@
     padding: 10px 20px;
     margin: 0;
     border-bottom: 1px solid #e0e0e0;
+    cursor: pointer;
+}
+
+.collection-item.avatar:hover {
+    background: #c7c7c7;
+    color: white;
+}
+
+.collection-item.avatar:active {
+    background: #c7c7c7;
+    color: white;
 }

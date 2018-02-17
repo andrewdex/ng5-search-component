@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class SearchMoviesComponent implements OnInit {
 
   movies:any;
+  searchQuery:String;
   showAutoComplete = false;
+  title:String;
 
   constructor() {
 
@@ -25,6 +27,10 @@ export class SearchMoviesComponent implements OnInit {
 
   openAutocomplete() {
     this.showAutoComplete = false;
+  }
+
+  getSelectedMovie(title){
+    this.searchQuery = title;
   }
 
 }
