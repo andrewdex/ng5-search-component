@@ -1,6 +1,6 @@
 <div>
     <p>AutoComplete Search for Movie Titles</p>
-    <input id="search" (click)="openAutocomplete()" [(ngModel)]="searchQuery" type="text" placeholder="Enter movie title" (input)="searchMovie($event)" autocomplete="off">
+    <input id="search" (click)="openAutocomplete()" [(ngModel)]="searchQuery" type="text" placeholder="Enter movie title" (keydown)="onDown($event)" (input)="searchMovie($event)" autocomplete="off">
     <div clickOutside (clickOutside)="closeAutocomplete()" *ngIf="autoCompleteEnableWrapper">
         <div *ngIf="showAutoComplete" class="searchResults collection margin-top-m-20px">
 

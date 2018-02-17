@@ -110,37 +110,17 @@ export class SearchMoviesComponent implements OnInit {
 
 
   onDown($event){
-  let tempIndex =0;
-    if(this.tabIndex > 0){
-      var previousValue = this.tabIndex -1 ;
-      var previousElement = document.querySelector("[tabindex='"+previousValue+"']");
   
-      previousElement.classList.remove("selected");
-    }
-  
-    console.log("clicked");
-    console.log($event);
-    if($event.key == "ArrowDown"){
-      let selectedElement = document.querySelector("[tabindex='"+this.tabIndex+"']");
-      selectedElement.className = "selected";   
-       this.tabIndex ++;
-
-    }
-
-
-    if($event.key == "ArrowUp"){
-      let selectedElement = document.querySelector("[tabindex='"+this.tabIndex+"']");
-      selectedElement.className = "selected";   
-       this.tabIndex --;
-
-    }
-
     if($event.key == "Enter"){
 
-      let selectedElement = document.querySelector("[tabindex='"+this.tabIndex+"']");
-      let getValue = selectedElement.querySelector(".title");
-      this.searchQuery = getValue.innerHTML;
-      console.log(getValue.innerHTML);
+      let selectedElement =  document.querySelector(".selected .title");
+
+      let selectedMovie = selectedElement.innerHTML;
+
+      this.searchQuery = selectedMovie;
+
+
+      console.log(selectedElement.innerHTML);
 
     }
  
