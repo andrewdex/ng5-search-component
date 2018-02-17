@@ -54,7 +54,7 @@ export class SearchMoviesComponent implements OnInit {
       let sanitizedText = this.searchQuery.trim();
 
       if($event.timeStamp - this.keypressTrack > 500 ){
-        if(query !== ""){
+        if(sanitizedText !== ""){
           this.autoCompleteEnableWrapper = true;
           console.log("SearchQuery :"+sanitizedText);
           console.log(sanitizedText);
