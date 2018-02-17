@@ -3,4 +3,11 @@
     <p>AutoComplete Search for Movie Titles</p>
     <input type="text" placeholder="Enter movie title">
 
+
+    <div class="searchResults">
+        <p *ngFor="let title of movies " tabindex="0">
+            {{title}}
+        </p>
+    </div>
+
 </div>

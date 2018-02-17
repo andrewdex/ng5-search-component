@@ -7,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchMoviesComponent implements OnInit {
 
-  constructor() { }
+  movies:any;
+  constructor() {
+
+    this.movies =  ['Atlantic','Anna Belle','Burnt','Captain America','Dawn of Planet Apes','Edge of Tomorrow','Fast and Furius','Goosebumps','Hobbit','Inception','John Wick','Koob','King Kong','Lion King','Man of Steel', 'Nice at the Meusium','Once Upon A Time','Perl habour','Quantum','Ragnarok','Shout out'];
+
+   }
 
   ngOnInit() {
   }
