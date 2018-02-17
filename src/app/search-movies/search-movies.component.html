@@ -1,13 +1,11 @@
 <div>
     <p>AutoComplete Search for Movie Titles</p>
-    <input (click)="openAutocomplete()" [(ngModel)]="searchQuery" type="text" placeholder="Enter movie title" (input)="searchMovie($event)">
-
-
+    <input id="search" (click)="openAutocomplete()" [(ngModel)]="searchQuery" type="text" placeholder="Enter movie title" (input)="searchMovie($event)" autocomplete="off">
     <div clickOutside (clickOutside)="closeAutocomplete()" *ngIf="autoCompleteEnableWrapper">
         <div *ngIf="showAutoComplete" class="searchResults collection margin-top-m-20px">
 
 
-            <div *ngFor="let movie of omdbMovies">
+            <div *ngFor="let movie of omdbMovies; let i = index" [tabindex]="i" class="movie">
                 <a href="http://www.imdb.com/title/{{movie.imdbID}}" target="_blank">
                     <div (click)="getSelectedMovie(movie.Title)" class="collection-item avatar">
 
@@ -20,9 +18,13 @@
 
 
 
-
-
         </div>
+
+
+    </div>
+    <div *ngIf="noresults" class="yellow darken-2">
+
+        <h4 class="header center white-text">Oh oh.. No Results found... Please try another search</h4>
     </div>
 
 
