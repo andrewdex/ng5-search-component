@@ -47,19 +47,28 @@ export class SearchMoviesComponent implements OnInit {
 
   searchMovie($event){
 
-  
-
       let query = $event.target.value;
-      console.log("SearchQuery :"+this.searchQuery);
-      console.log(query);
-      this.moviesService.searchMovieByTitle(this.searchQuery).subscribe(data =>{
-        console.log("hey");
-        this.omdbMovies = data.Search;
-        console.log(data);
-      });
 
+      let sanitizedText = this.searchQuery.trim();
+
+      if($event.timeStamp - this.keypressTrack > 500 ){
+        if(query !== ""){
+          this.autoCompleteEnableWrapper = true;
+          console.log("SearchQuery :"+sanitizedText);
+          console.log(sanitizedText);
+          this.moviesService.searchMovieByTitle(sanitizedText).subscribe(data =>{
+            console.log("hey");
+            this.omdbMovies = data.Search;
+            console.log(data);
+          });
     
- 
+        }else{
+          this.autoCompleteEnableWrapper = false;
+        }
+  
+      }
+
+
 
 
   }

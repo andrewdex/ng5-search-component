@@ -1,5 +1,4 @@
 <div>
-
     <p>AutoComplete Search for Movie Titles</p>
     <input (click)="openAutocomplete()" [(ngModel)]="searchQuery" type="text" placeholder="Enter movie title" (input)="searchMovie($event)">
 
@@ -7,20 +6,22 @@
     <div clickOutside (clickOutside)="closeAutocomplete()" *ngIf="autoCompleteEnableWrapper">
         <div *ngIf="showAutoComplete" class="searchResults collection margin-top-m-20px">
 
-            <div (click)="getSelectedMovie(movie.Title)" class="collection-item avatar" *ngFor="let movie of omdbMovies | searchFilterPipe">
 
+            <div *ngFor="let movie of omdbMovies">
+                <a href="http://www.imdb.com/title/{{movie.imdbID}}" target="_blank">
+                    <div (click)="getSelectedMovie(movie.Title)" class="collection-item avatar">
 
-                <img [src]="movie.Poster" alt="" class="circle">
-                <span class="title">{{movie.Title}}</span>
+                        <img [src]="movie.Poster" alt="" class="circle">
+                        <span class="title">{{movie.Title}}</span>
 
-
+                    </div>
+                </a>
             </div>
 
-            <!-- <div *ngFor="let movie of omdbMovies">
 
-                <p>{{movie.Title}}</p>
 
-            </div> -->
+
+
         </div>
     </div>
 
