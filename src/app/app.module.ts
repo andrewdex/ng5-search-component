@@ -5,7 +5,8 @@ import { AppComponent } from './app.component';
 import { SearchMoviesComponent } from './search-movies/search-movies.component';
 import { FormsModule } from '@angular/forms';
 import { ClickOutsideDirective } from './commons/clickoutsideHandler';
-
+import { MoviesService } from './services/movies.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -16,9 +17,10 @@ import { ClickOutsideDirective } from './commons/clickoutsideHandler';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [MoviesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
