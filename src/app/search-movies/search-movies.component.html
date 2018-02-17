@@ -7,9 +7,10 @@
     <div clickOutside (clickOutside)="closeAutocomplete()" *ngIf="autoCompleteEnableWrapper">
         <div *ngIf="showAutoComplete" class="searchResults collection margin-top-m-20px">
 
-            <div (click)="getSelectedMovie(movie.Title)" class="collection-item avatar" *ngFor="let movie of omdbMovies">
+            <div (click)="getSelectedMovie(movie.Title)" class="collection-item avatar" *ngFor="let movie of omdbMovies | searchFilterPipe">
 
-                <i class="material-icons circle orange">movie</i>
+
+                <img [src]="movie.Poster" alt="" class="circle">
                 <span class="title">{{movie.Title}}</span>
 
 
