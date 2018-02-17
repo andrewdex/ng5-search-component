@@ -10,6 +10,7 @@ export class SearchMoviesComponent implements OnInit {
   movies:any;
   searchQuery:String;
   showAutoComplete = false;
+  autoCompleteEnableWrapper =true;
   title:String;
 
   constructor() {
@@ -26,11 +27,14 @@ export class SearchMoviesComponent implements OnInit {
   }
 
   openAutocomplete() {
+    this.autoCompleteEnableWrapper = true;
     this.showAutoComplete = false;
   }
 
   getSelectedMovie(title){
+    this.autoCompleteEnableWrapper = false;
     this.searchQuery = title;
+   
   }
 
 }
