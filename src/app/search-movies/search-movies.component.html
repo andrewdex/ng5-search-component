@@ -3,10 +3,15 @@
     <p>AutoComplete Search for Movie Titles</p>
     <input [(ngModel)]="searchQuery" type="text" placeholder="Enter movie title">
 
-    <div class="searchResults">
-        <p *ngFor="let title of movies | searchFilterPipe :searchQuery" tabindex="0">
-            {{title}}
-        </p>
+    <div class="searchResults collection">
+
+        <div class="collection-item avatar" *ngFor="let title of movies | searchFilterPipe :searchQuery">
+
+            <i class="material-icons circle">folder</i>
+            <span class="title">   {{title}}</span>
+
+
+        </div>
     </div>
 
 </div>
