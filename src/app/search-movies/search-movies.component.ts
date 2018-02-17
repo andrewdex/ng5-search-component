@@ -24,10 +24,12 @@ export class SearchMoviesComponent implements OnInit {
    }
 
   ngOnInit() {
-  this.moviesService.getJSON().subscribe(data =>{
+  this.moviesService.searchMovieByTitle("avatar").subscribe(data =>{
   this.omdbMovies = data.Search;
     console.log(data);
   });
+
+  
   }
 
   closeAutocomplete() {
