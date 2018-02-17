@@ -10,10 +10,12 @@ import { MoviesService } from '../services/movies.service';
 export class SearchMoviesComponent implements OnInit {
 
   movies:any;
+  omdbMovies:any;
   searchQuery:String;
   showAutoComplete = false;
   autoCompleteEnableWrapper =true;
   title:String;
+  keypressTrack : number = 0;
 
   constructor(private moviesService:MoviesService) {
 
@@ -23,7 +25,7 @@ export class SearchMoviesComponent implements OnInit {
 
   ngOnInit() {
   this.moviesService.getJSON().subscribe(data =>{
-
+  this.omdbMovies = data.Search;
     console.log(data);
   });
   }
@@ -41,6 +43,25 @@ export class SearchMoviesComponent implements OnInit {
     this.autoCompleteEnableWrapper = false;
     this.searchQuery = title;
    
+  }
+
+  searchMovie($event){
+
+  
+
+      let query = $event.target.value;
+      console.log("SearchQuery :"+this.searchQuery);
+      console.log(query);
+      this.moviesService.searchMovieByTitle(this.searchQuery).subscribe(data =>{
+        console.log("hey");
+        this.omdbMovies = data.Search;
+        console.log(data);
+      });
+
+    
+ 
+
+
   }
 
 }

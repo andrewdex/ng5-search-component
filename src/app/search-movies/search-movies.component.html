@@ -1,19 +1,25 @@
 <div>
 
     <p>AutoComplete Search for Movie Titles</p>
-    <input (click)="openAutocomplete()" [(ngModel)]="searchQuery" type="text" placeholder="Enter movie title">
+    <input (click)="openAutocomplete()" [(ngModel)]="searchQuery" type="text" placeholder="Enter movie title" (input)="searchMovie($event)">
 
 
     <div clickOutside (clickOutside)="closeAutocomplete()" *ngIf="autoCompleteEnableWrapper">
         <div *ngIf="showAutoComplete" class="searchResults collection margin-top-m-20px">
 
-            <div (click)="getSelectedMovie(title)" class="collection-item avatar" *ngFor="let title of movies | searchFilterPipe :searchQuery">
+            <div (click)="getSelectedMovie(movie.Title)" class="collection-item avatar" *ngFor="let movie of omdbMovies">
 
                 <i class="material-icons circle orange">movie</i>
-                <span class="title">{{title}}</span>
+                <span class="title">{{movie.Title}}</span>
 
 
             </div>
+
+            <!-- <div *ngFor="let movie of omdbMovies">
+
+                <p>{{movie.Title}}</p>
+
+            </div> -->
         </div>
     </div>
 

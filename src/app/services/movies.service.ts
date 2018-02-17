@@ -13,12 +13,22 @@ export class MoviesService {
     this.getJSON().subscribe(data => obj=data, error => console.log(error));
 }
 
+
+//['Atlantic','Anna Belle','Burnt','Captain America','Dawn of Planet Apes','Edge of Tomorrow','Fast and Furius','Goosebumps','Hobbit','Inception','John Wick','Koob','King Kong','Lion King','Man of Steel', 'Nice at the Meusium','Once Upon A Time','Perl habour','Quantum','Ragnarok','Shout out'];
 public getJSON(): Observable<any> {
-  //http://www.omdbapi.com/?t=a&apikey=2f6d5d8c
-    return this.http.get("http://www.omdbapi.com/?s=av&apikey=2f6d5d8c")
+    return this.http.get("http://www.omdbapi.com/?s=ava&apikey=2f6d5d8c")
                     .map((res:any) => res.json());
 
 }
+
+
+public searchMovieByTitle(title): Observable<any> {
+
+    return this.http.get("http://www.omdbapi.com/?s="+title+"&apikey=2f6d5d8c")
+                    .map((res:any) => res.json());
+
+}
+
 
 
 }
