@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+.margin-top-m-20px {
+    margin-top: -20px;
+}
+
+.collection .collection-item {
+    background-color: #ffffff;
+    line-height: 2.5rem;
+    padding: 10px 20px;
+    margin: 0;
+    border-bottom: 1px solid #e0e0e0;
+}
