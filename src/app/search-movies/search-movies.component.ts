@@ -44,6 +44,8 @@ export class SearchMoviesComponent implements OnInit {
       
     });
 
+
+  //Handling the navigation using arrow keys on the search results
   var tab = function(diff) {
     tabindex += diff;
     var movieElement = $(".movie");
@@ -58,21 +60,26 @@ export class SearchMoviesComponent implements OnInit {
   
   }
 
+  //Close the autocomplete
   closeAutocomplete() {
     this.showAutoComplete = !this.showAutoComplete;
   }
 
+  //Open the autocomplete
   openAutocomplete() {
     this.autoCompleteEnableWrapper = true;
     this.showAutoComplete = false;
   }
 
+
+  //Getting the selected movie by title passed 
   getSelectedMovie(title){
     this.autoCompleteEnableWrapper = false;
     this.searchQuery = title;
    
   }
 
+  //Search Movie on keydown event
   searchMovie($event){
 
       let query = $event.target.value;
@@ -85,15 +92,20 @@ export class SearchMoviesComponent implements OnInit {
           this.noresults = false;
           console.log("SearchQuery :"+sanitizedText);
           console.log(sanitizedText);
+
+          //Service call subscribe event promise 
           this.moviesService.searchMovieByTitle(sanitizedText).subscribe(data =>{
-            console.log("hey");
+
+            //If this returns movies , we assign this to our scope array
             this.omdbMovies = data.Search;
             
             console.log(data);
 
+            //Check if the movie not found 
             if(data.Error == "Movie not found!"){
               this.autoCompleteEnableWrapper = false;
 
+              //To handle the no results with a little delay : Provides accuracy since the network latency issues might occur 
               setTimeout(()=>{
                 this.noresults = true;
               },1000);
@@ -102,6 +114,7 @@ export class SearchMoviesComponent implements OnInit {
           });
     
         }else{
+          //This will makesure we will hide the autocomplete UI if no results found
           this.autoCompleteEnableWrapper = false;
         }
   
@@ -113,6 +126,7 @@ export class SearchMoviesComponent implements OnInit {
   }
 
 
+  //This is used to handle the keydown enter event to select the title based on the current element highlighted by the user
   onDown($event){
   
     if($event.key == "Enter"){

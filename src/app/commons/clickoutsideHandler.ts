@@ -3,6 +3,10 @@ import { Directive, ElementRef, Output, EventEmitter, HostListener } from '@angu
 @Directive({
     selector: '[clickOutside]',
 })
+
+/**
+ * This handler directive is used to handle the clicking out of the search field to disable the autocomplete search
+ */
 export class ClickOutsideDirective {
     @Output() public clickOutside = new EventEmitter();
     constructor(private _elementRef: ElementRef) {
