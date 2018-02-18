@@ -28,4 +28,18 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 Angular Pipe called searchFilterPipe.ts is written from sctratch to handle the matching search queries, this works with local data sources in the events such as the data is already loaded
 
 
+## Search Movies Component : `search-movies.component.ts`
+
+This file includes all the logic written for searching movies - autocomplete. 
+
+## Movie Service : `services/movies.service.ts`
+
+This file contains the HTTP service call methods written to handle the REST calls
+
+## Movie Database - REST - `https://www.omdbapi.com`
+https://www.omdbapi.com is used to retrive movie data, which is served by the Movie Service written. 
+
+ 
+
+
 
