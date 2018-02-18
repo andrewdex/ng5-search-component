@@ -41,9 +41,11 @@ https://www.omdbapi.com is used to retrive movie data, which is served by the Mo
 There might be some slowness due to the limitations of this FREE api, but feel free to bind a local data storage in case you need to switch data source.
 
 
-#Future Development 
+## Future Development - Possible improvements
 
 - Fall back data source for AutoCompletion as a Service
+- Local data caching mechanism to prevent calling redundant REST calls
+- Improve the UI with more features
 
 
 
