@@ -86,7 +86,7 @@ export class SearchMoviesComponent implements OnInit {
 
       let sanitizedText = this.searchQuery.trim();
 
-      if($event.timeStamp - this.keypressTrack > 500 ){
+    
         if(sanitizedText !== ""){
           this.autoCompleteEnableWrapper = true;
           this.noresults = false;
@@ -97,7 +97,7 @@ export class SearchMoviesComponent implements OnInit {
           this.moviesService.searchMovieByTitle(sanitizedText).subscribe(data =>{
 
             //If this returns movies , we assign this to our scope array
-            this.omdbMovies = data.Search;
+      
             
             console.log(data);
 
@@ -110,6 +110,8 @@ export class SearchMoviesComponent implements OnInit {
                 this.noresults = true;
               },1000);
        
+            }else{
+              this.omdbMovies = data.Search;
             }
           });
     
@@ -118,7 +120,7 @@ export class SearchMoviesComponent implements OnInit {
           this.autoCompleteEnableWrapper = false;
         }
   
-      }
+  
 
 
 

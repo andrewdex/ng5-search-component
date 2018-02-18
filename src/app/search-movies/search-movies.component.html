@@ -1,7 +1,7 @@
 <div class="row">
     <p>AutoComplete Search for Movie Titles</p>
     <input id="search" (click)="openAutocomplete()" [(ngModel)]="searchQuery" type="text" placeholder="Enter movie title" (keydown)="onDown($event)" (input)="searchMovie($event)" autocomplete="off">
-    <div clickOutside (clickOutside)="closeAutocomplete()" *ngIf="autoCompleteEnableWrapper">
+    <div (clickOutside)="closeAutocomplete()" *ngIf="autoCompleteEnableWrapper">
         <div *ngIf="showAutoComplete" class="searchResults collection margin-top-m-20px">
             <div *ngFor="let movie of omdbMovies; let i = index" [tabindex]="i" class="movie">
                 <a href="http://www.imdb.com/title/{{movie.imdbID}}" target="_blank">
