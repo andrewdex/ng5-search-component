@@ -1,4 +1,4 @@
-# Ng5- Movie SearchComponent - Fully Written in NG5
+# Ng5- Movie SearchComponent[AutoComplete] - Fully Written in NG5
 
 Demo Lives at : https://searchmoviez.herokuapp.com/ (Please mind the delay as its free hosted)
 
