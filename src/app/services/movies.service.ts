@@ -29,6 +29,16 @@ public searchMovieByTitle(title): Observable<any> {
 
 }
 
+public checkIfServiceWorks(title){
+  var status;
+  this.http.get("http://www.omdbapi.com/?s="+title+"&apikey=2f6d5d8c")
+  .map((res:any) => res.json()).subscribe(data =>{
+    status = data;
+  });
+
+  return status;
+}
+
 
 
 }

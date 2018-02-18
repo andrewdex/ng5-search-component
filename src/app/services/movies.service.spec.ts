@@ -3,14 +3,21 @@ import { HttpModule } from '@angular/http';
 import { MoviesService } from './movies.service';
 
 describe('MoviesService', () => {
+
   beforeEach(() => {
+
     TestBed.configureTestingModule({
       imports:[HttpModule],
       providers: [MoviesService]
     });
   });
-
   it('should be created', inject([MoviesService], (service: MoviesService) => {
     expect(service).toBeTruthy();
+  }));
+
+  it('Movie service test',inject([MoviesService], (service: MoviesService) => {
+
+    expect(service.searchMovieByTitle('avatar')).toBeTruthy();
+
   }));
 });
