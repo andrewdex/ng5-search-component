@@ -82,11 +82,11 @@ export class SearchMoviesComponent implements OnInit {
   //Search Movie on keydown event
   searchMovie($event){
 
-      let query = $event.target.value;
+    setTimeout(()=>{
+ let query = $event.target.value;
 
       let sanitizedText = this.searchQuery.trim();
 
-    
         if(sanitizedText !== ""){
           this.autoCompleteEnableWrapper = true;
           this.noresults = false;
@@ -120,6 +120,8 @@ export class SearchMoviesComponent implements OnInit {
           this.autoCompleteEnableWrapper = false;
         }
   
+    },800);
+     
   
 
 
