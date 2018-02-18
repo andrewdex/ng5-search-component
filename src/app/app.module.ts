@@ -8,6 +8,7 @@ import { ClickOutsideDirective } from './commons/clickoutsideHandler';
 import { MoviesService } from './services/movies.service';
 import { HttpModule } from '@angular/http';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,9 @@ import { HttpModule } from '@angular/http';
     BrowserModule,
     FormsModule,
     HttpModule
+    
   ],
+
   providers: [MoviesService],
   bootstrap: [AppComponent]
 })

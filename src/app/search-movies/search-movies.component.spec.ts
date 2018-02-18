@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormsModule } from '@angular/forms';
 import { SearchMoviesComponent } from './search-movies.component';
+import {AppComponent } from '../app.component';
+import { HttpModule } from '@angular/http';
+import { MoviesService } from '../services/movies.service';
+
 
 describe('SearchMoviesComponent', () => {
   let component: SearchMoviesComponent;
@@ -8,7 +12,9 @@ describe('SearchMoviesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchMoviesComponent ]
+      imports:[HttpModule,FormsModule],
+      declarations: [ AppComponent,SearchMoviesComponent ],
+      providers:[MoviesService]
     })
     .compileComponents();
   }));

@@ -29,30 +29,30 @@ export class SearchMoviesComponent implements OnInit {
     console.log(data);
   });
 
-  let displayBoxIndex = -1;
+  let tabindex = -1;
 
     $("#search").keyup(function(e)  
     {
         if (e.keyCode == 40) 
         {  
-            Navigate(1);
+            tab(1);
         }
         if(e.keyCode==38)
         {
-            Navigate(-1);
+            tab(-1);
         }
       
     });
 
-  var Navigate = function(diff) {
-    displayBoxIndex += diff;
-    var oBoxCollection = $(".movie");
-    if (displayBoxIndex >= oBoxCollection.length)
-        displayBoxIndex = 0;
-    if (displayBoxIndex < 0)
-        displayBoxIndex = oBoxCollection.length - 1;
+  var tab = function(diff) {
+    tabindex += diff;
+    var movieElement = $(".movie");
+    if (tabindex >= movieElement.length)
+    tabindex = 0;
+    if (tabindex < 0)
+    tabindex = movieElement.length - 1;
     var cssClass = "selected";
-    oBoxCollection.removeClass(cssClass).eq(displayBoxIndex).addClass(cssClass);
+    movieElement.removeClass(cssClass).eq(tabindex).addClass(cssClass);
   }
     
   
