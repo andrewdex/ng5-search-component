@@ -38,8 +38,13 @@ This file contains the HTTP service call methods written to handle the REST call
 
 ## Movie Database - REST - `https://www.omdbapi.com`
 https://www.omdbapi.com is used to retrive movie data, which is served by the Movie Service written. 
+There might be some slowness due to the limitations of this FREE api, but feel free to bind a local data storage in case you need to switch data source.
 
- 
+
+#Future Development 
+
+- Fall back data source for AutoCompletion as a Service
+
 
 
 
