@@ -93,7 +93,11 @@ export class SearchMoviesComponent implements OnInit {
 
             if(data.Error == "Movie not found!"){
               this.autoCompleteEnableWrapper = false;
-              this.noresults = true;
+
+              setTimeout(()=>{
+                this.noresults = true;
+              },1000);
+       
             }
           });
     
