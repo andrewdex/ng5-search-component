@@ -23,7 +23,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Coding Documentation
 
 
-##Search Filter Pipe : `searchFilterPipe.ts`
+## Search Filter Pipe : `searchFilterPipe.ts`
 
 Angular Pipe called searchFilterPipe.ts is written from sctratch to handle the matching search queries, this works with local data sources in the events such as the data is already loaded
 
